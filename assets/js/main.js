@@ -1,4 +1,4 @@
-const API_URL = "https://backendwebmenu.onrender.com/api/productos";
+const API_URL = "https://backendwebmenu.onrender.com";
 const contenedorProductos = document.getElementById("productos-container");
 let carrito = [];
 
@@ -63,7 +63,7 @@ function cargarCarrito() {
 // 1. Obtener los productos del backend
 async function cargarProductos() {
   try {
-    const respuesta = await fetch(API_URL);
+    const respuesta = await fetch(`${API_URL}/api/productos`);
     const productos = await respuesta.json();
     renderizarCatalogo(productos);
   } catch (error) {
@@ -166,7 +166,7 @@ function eliminarDelCarrito(id) {
 
 // Obtiene la orden completa desde la base de datos (orders + order_items + Products)
 async function obtenerOrdenCompleta(orderId) {
-  const respuesta = await fetch(`http://localhost:3000/api/orders/${orderId}`);
+  const respuesta = await fetch(`${API_URL}/api/orders/${orderId}`);
   const data = await respuesta.json();
   if (!respuesta.ok) {
     throw new Error(data.error || "No se pudo obtener la orden");
@@ -220,7 +220,7 @@ btnConfirmar.addEventListener("click", async () => {
     btnConfirmar.disabled = true;
     btnConfirmar.textContent = "Procesando...";
 
-    const respuesta = await fetch("http://localhost:3000/api/orders", {
+    const respuesta = await fetch(`${API_URL}/api/orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
