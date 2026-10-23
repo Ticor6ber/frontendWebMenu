@@ -1,0 +1,52 @@
+<!DOCTYPE    html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto web de menú</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script>if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light');</script>
+</head>
+<body>
+    <header class="text-white text-center p-4">
+        <h2>Bienvenid@ a mi proyecto web de menú</h2>
+        <button id="theme-toggle" class="btn btn-primary btn-sm" type="button" onclick="var h=document.documentElement,l=h.getAttribute('data-theme')!=='light';l?h.setAttribute('data-theme','light'):h.removeAttribute('data-theme');localStorage.setItem('theme',l?'light':'dark');this.textContent=l?'Modo Oscuro':'Modo Claro';">Modo Claro</button>
+        <script>if (localStorage.getItem('theme') === 'light') document.getElementById('theme-toggle').textContent = 'Modo Oscuro';</script>
+    </header>
+    <div class="bg-dark container-fluid row d-flex p-0 m-0" id="main-container">
+        <div class="container-fluid d-flex flex-wrap col-12 col-xl-8 col-xxl-9 align-items-start p-3 m-0 justify-content-between" id="productos-container">
+            <!-- Aquí se agregarán dinámicamente los productos -->
+        </div>
+    
+        <div class="bg-dark container-fluid col-12 col-xl-4 col-xxl-3 m-0 p-3 p-md-4 border-start border-secondary border-3 border-opacity-25" id="orden-container">
+            <button id="btn-vaciar" class="btn btn-danger mb-4 w-100">Vaciar orden</button>
+            <p class="text-white">Productos seleccionados:</p>
+            <div style="min-height: 400px; max-height: 600px;" class="overflow-y-auto overflow-x-hidden bg-dark-subtle mb-4 p-2 rounded">
+            <table class="table table-secondary table-striped">
+                <thead>
+                    <tr>
+                        <th>Cantidad</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Impuesto</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Filas de productos se agregarán dinámicamente -->
+                </tbody>
+            </table>
+            </div>
+            <div class="container bg-dark-subtle rounded p-4 mb-4 text-center border">
+            <p>Total: $<span id="total">0.00</span></p>
+            <p>Impuesto total: $<span id="impuesto">0.00</span></p>
+            </div>
+            <button id="btn-confirmar" class="btn btn-primary w-100">Confirmar pago</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

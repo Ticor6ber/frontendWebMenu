@@ -1,0 +1,218 @@
+header {
+    background-color: #7740ff;
+}
+
+* .btn-primary {
+    background-color: #7740ff;
+    border-color: #7740ff;
+}
+
+* .btn-primary:hover {
+    background-color: #6034cf;
+    border-color: #6034cf;
+}
+
+* body, .main-container {
+    background-color: #080a0c;
+}
+
+section.card {
+    border: 3px solid rgb(52, 57, 63) !important;
+}
+
+/* ===== Botón de cambio de tema ===== */
+header {
+    position: relative;
+}
+
+#theme-toggle {
+    margin-top: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: #fff;
+}
+
+@media (min-width: 768px) {
+    #theme-toggle {
+        position: absolute;
+        top: 50%;
+        right: 1.5rem;
+        margin-top: 0;
+        transform: translateY(-50%);
+    }
+}
+
+html[data-theme="light"] body,
+html[data-theme="light"] .main-container {
+    background-color: #f5f6fa;
+}
+
+html[data-theme="light"] .bg-dark {
+    background-color: #ffffff !important;
+}
+
+html[data-theme="light"] .bg-dark .text-white,
+html[data-theme="light"] .bg-dark.text-white,
+html[data-theme="light"] .modal-content {
+    color: #212529 !important;
+}
+
+html[data-theme="light"] #orden-container,
+html[data-theme="light"] .bg-dark-subtle {
+    color: #212529;
+}
+
+html[data-theme="light"] section.card {
+    border-color: rgb(206, 212, 218) !important;
+}
+
+html[data-theme="light"] .modal-content .btn-close {
+    filter: none;
+}
+
+/* ===== Diseño adaptable (responsive) ===== */
+#productos-container {
+    align-items: stretch !important;
+}
+
+section.card {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    max-height: none !important;
+    overflow: hidden;
+}
+
+section.card img.card-img-top {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+section.card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+section.card .card-body .btn {
+    margin-top: auto;
+}
+
+/* ----- Tipografía fluida ----- */
+header h2 {
+    font-size: clamp(1.15rem, 1rem + 1.2vw, 1.9rem);
+}
+
+section.card .card-title {
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.35rem);
+}
+
+section.card .card-text {
+    font-size: clamp(0.8rem, 0.75rem + 0.25vw, 1rem);
+}
+
+section.card .btn {
+    font-size: clamp(0.8rem, 0.75rem + 0.25vw, 1rem);
+}
+
+/* ----- Panel de orden: la tabla siempre es legible y se desplaza en lugar de recortarse ----- */
+#orden-container .overflow-y-auto {
+    overflow-x: auto !important;
+}
+
+#orden-container table {
+    font-size: clamp(0.75rem, 0.7rem + 0.2vw, 0.95rem);
+    min-width: 340px;
+    margin-bottom: 0;
+}
+
+#orden-container th,
+#orden-container td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+#orden-container td:nth-child(2) {
+    white-space: normal;
+    min-width: 90px;
+}
+
+/* Ancho de las tarjetas por punto de quiebre (>=1400px mantiene el 23% de main.js) */
+
+/* Laptops grandes (1200-1399): la barra lateral está junto a los productos, 3 tarjetas por fila */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    section.card {
+        width: 31.33% !important;
+        margin: 1% !important;
+    }
+}
+
+/* Menos de 1200px (iPad Pro, tablets, teléfonos): la barra lateral queda debajo de los productos */
+@media (max-width: 1199.98px) {
+    #orden-container {
+        border-left: 0 !important;
+        border-top: 3px solid rgba(108, 117, 125, 0.25);
+    }
+
+    #orden-container .overflow-y-auto {
+        min-height: 250px !important;
+    }
+
+    #orden-container table {
+        min-width: 0;
+    }
+}
+
+/* Tablets (768-991): 3 tarjetas por fila */
+@media (max-width: 991.98px) {
+    section.card {
+        width: 31.33% !important;
+        margin: 1% !important;
+    }
+}
+
+/* Teléfonos grandes / tablets pequeñas: 2 tarjetas por fila */
+@media (max-width: 767.98px) {
+    section.card {
+        width: 48% !important;
+        margin: 1% !important;
+    }
+}
+
+/* Teléfonos: 1 tarjeta por fila */
+@media (max-width: 575.98px) {
+    section.card {
+        width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+    }
+
+    #productos-container {
+        padding: 1rem !important;
+    }
+
+    #orden-container {
+        padding: 1rem !important;
+    }
+}
+
+/* ===== Modo oscuro ===== */
+html:not([data-theme="light"]) #orden-container .bg-dark-subtle {
+    background-color: #14171b !important;
+    color: #e9ecef;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html:not([data-theme="light"]) #orden-container .table {
+    --bs-table-bg: transparent;
+    --bs-table-color: #e9ecef;
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
+    --bs-table-striped-color: #e9ecef;
+    --bs-table-border-color: rgba(255, 255, 255, 0.12);
+    color: #e9ecef;
+}
