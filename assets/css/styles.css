@@ -12,6 +12,19 @@ header {
     border-color: #6034cf;
 }
 
+* .btn-primary:active,
+* .btn-primary:focus,
+* .btn-primary:focus-visible,
+.btn-check:checked + .btn-primary,
+.btn-primary.active,
+.btn-primary:first-child:active,
+:not(.btn-check) + .btn-primary:active {
+    background-color: #4f28b3 !important;
+    border-color: #4f28b3 !important;
+    box-shadow: 0 0 0 0.25rem rgba(119, 64, 255, 0.4) !important;
+}
+
+
 * body, .main-container {
     background-color: #080a0c;
 }
