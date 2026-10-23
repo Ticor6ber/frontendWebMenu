@@ -276,4 +276,4 @@ cargarCarrito(); // 1. Recuperamos el carrito si existe
 cargarProductos(); // 2. Cargamos el catálogo
 
 // Mostrar modal de atención
-mostrarModal("Atención", "El Microservicio se encuentra en la nube usando Render gratuitamente, por lo que puede que demore en cargar la página. Recargue la página si no se muestran los productos en 1 minuto.");
+mostrarModal("Atención", "El Microservicio se encuentra en la nube usando Render gratuitamente, por lo que puede que demore en cargar la página. Recargue la página si no se muestran los productos en 1 minuto. Adicionalmente este sitio utiliza cookies para almacenar los productos seleccionados");
